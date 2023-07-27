@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VF
 {
-    internal class TimeZoneCollections
+    public class TimeZoneCollections
     {
         public static List<(int Id, string DisplayName)> GetTimeZones()
         {

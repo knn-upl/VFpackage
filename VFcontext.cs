@@ -11,7 +11,7 @@ using VF.Models;
 
 namespace VF
 {
-    internal class VFcontext : IdentityDbContext<Users, Roles, long>
+    public class VFcontext : IdentityDbContext<Users, Roles, long>
     {
         private readonly TimeZoneInfo timeZoneInfo;
         public DbSet<Users>? Users { get; set; }
