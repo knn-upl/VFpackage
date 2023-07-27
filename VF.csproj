@@ -7,9 +7,13 @@
     <PackageId>VF</PackageId>
     <Title>VF</Title>
     <Authors>knnupl</Authors>
-    <Description>This library to create VF Framewokr</Description>
+    <Description>This library to create VF Framework</Description>
     <Copyright>knnupl</Copyright>
     <PackageProjectUrl>www.vf-framwork.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/knnupl/VFpackage</RepositoryUrl>
+    <PackageTags>CLI,Framework</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
 
@@ -37,5 +41,13 @@
     <PackageReference Include="Quartz.Plugins" Version="3.6.3" />
     <PackageReference Include="Quartz.Serialization.Json" Version="3.6.3" />
     <PackageReference Include="Radzen.Blazor" Version="4.14.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>
