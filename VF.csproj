@@ -15,7 +15,12 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Version>1.0.2</Version>
+    <ApplicationIcon>vf.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="vf.ico" />
+  </ItemGroup>
 
 
   <ItemGroup>
