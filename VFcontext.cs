@@ -1,34 +1,61 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VF.Models;
 
 namespace VF
 {
     public class VFcontext : IdentityDbContext<Users, Roles, long>
     {
-        private readonly TimeZoneInfo timeZoneInfo;
         public DbSet<Users>? Users { get; set; }
         public DbSet<Roles>? Roles { get; set; }
         public DbSet<UserRoles>? UserRoles { get; set; }
 
-        public VFcontext(DbContextOptions<VFcontext> options, TimeZoneInfo dt) : base(options)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            timeZoneInfo = dt;
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Users>(
+                e =>
+                {
+                    e.ToTable("Users");
+                    e.HasKey(e => e.Id);
+                    e.Property(e => e.Email).IsRequired();
+                    e.Property(e => e.UserName).IsRequired();
+                    e.Property(e => e.PasswordHash).IsRequired();
+                    e.Property(e => e.EmailConfirmed).HasDefaultValue(false);
+                    e.Property(e => e.PhoneNumberConfirmed).HasDefaultValue(false);
+                    e.Property(e => e.TwoFactorEnabled).HasDefaultValue(false);
+                    e.Property(e => e.LockoutEnabled).HasDefaultValue(false);
+                    e.Property(e => e.AccessFailedCount).HasDefaultValue(false);
+                });
+            modelBuilder.Entity<Roles>(
+                e =>
+                {
+                    e.ToTable("Roles");
+                    e.HasKey(e => e.Id);
+
+                });
+            modelBuilder.Entity<UserRoles>(
+                e =>
+                {
+                    e.ToTable("UserRoles");
+                    e.HasKey(e => e.UserId);
+                    e.HasOne(e => e.Role).WithMany(e => e.UserRole).HasForeignKey(e => e.RoleId);
+                    e.HasOne(e => e.User).WithOne(e => e.UserRole);
+                });
+
         }
+
+        public VFcontext(DbContextOptions<VFcontext> options) : base(options)
+        {
+           
+        }       
         public void Save<T>(T entity) where T : class, IBaseEntity
         {
             T? existingEntity = Set<T>().Find(entity.Id);
-            DateTime? dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local, timeZoneInfo);
-            if (existingEntity != null)
+             if (existingEntity != null)
             {
-                existingEntity.UpdateAt = dt;
+                existingEntity.UpdateAt = DateTime.Now;
                 Entry(existingEntity).CurrentValues.SetValues(entity);
             }
             SaveChanges();
@@ -36,10 +63,9 @@ namespace VF
         public async Task SaveAsync<T>(T entity) where T : class, IBaseEntity
         {
             T? existingEntity = await Set<T>().FindAsync(entity.Id);
-            DateTime? dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local, timeZoneInfo);
             if (existingEntity != null)
             {
-                existingEntity.UpdateAt =dt ;
+                existingEntity.UpdateAt = DateTime.Now;
                 Entry(existingEntity).CurrentValues.SetValues(entity);
             }
             await SaveChangesAsync();
@@ -48,15 +74,14 @@ namespace VF
         public void UpdateOrCreate<T>(T entity) where T : class, IBaseEntity
         {
             T? existingEntity = Set<T>().Find(entity.Id);
-            DateTime? dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local, timeZoneInfo);
             if (existingEntity != null)
             {
-                existingEntity.UpdateAt =dt;
+                existingEntity.UpdateAt = DateTime.Now;
                 Entry(existingEntity).CurrentValues.SetValues(entity);
             }
             else
             {
-                entity.CreateAt = dt;
+                entity.CreateAt = DateTime.Now;
                 Set<T>().Add(entity);
             }
             
@@ -65,15 +90,14 @@ namespace VF
         public async Task UpdateOrCreateAsync<T>(T entity) where T : class, IBaseEntity
         {
             T? existingEntity = await Set<T>().FindAsync(entity.Id);
-            DateTime? dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local, timeZoneInfo);
             if (existingEntity != null)
             {
-                existingEntity.UpdateAt = dt;
+                existingEntity.UpdateAt = DateTime.Now;
                 Entry(existingEntity).CurrentValues.SetValues(entity);
             }
             else
             {
-                entity.CreateAt = dt;
+                entity.CreateAt = DateTime.Now;
                 await Set<T>().AddAsync(entity);
             }
 
