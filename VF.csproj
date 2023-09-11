@@ -25,7 +25,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="6.2.7" />
+    <PackageReference Include="EPPlus" Version="6.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
@@ -41,7 +41,7 @@
     <PackageReference Include="Quartz.Jobs" Version="3.7.0" />
     <PackageReference Include="Quartz.Plugins" Version="3.7.0" />
     <PackageReference Include="Quartz.Serialization.Json" Version="3.7.0" />
-    <PackageReference Include="Radzen.Blazor" Version="4.15.4" />
+    <PackageReference Include="Radzen.Blazor" Version="4.15.11" />
   </ItemGroup>
 
 
