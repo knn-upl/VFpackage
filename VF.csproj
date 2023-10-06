@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net7.0-maccatalyst</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>VF</PackageId>
@@ -15,8 +15,10 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>    
     <ApplicationIcon>vf.ico</ApplicationIcon>
-    <Version>1.0.6.2</Version>
+    <Version>1.0.6.3</Version>
     <PackageIcon>vf.png</PackageIcon>
+    <AssemblyVersion>1.0.6.3</AssemblyVersion>
+    <FileVersion>1.0.6.3</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,16 +27,22 @@
 
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="6.2.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="7.0.10" />  
+    <PackageReference Include="EPPlus" Version="6.2.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="7.0.11" />  
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Quartz" Version="3.7.0" />
     <PackageReference Include="Quartz.AspNetCore" Version="3.7.0" />
@@ -43,7 +51,7 @@
     <PackageReference Include="Quartz.Jobs" Version="3.7.0" />
     <PackageReference Include="Quartz.Plugins" Version="3.7.0" />
     <PackageReference Include="Quartz.Serialization.Json" Version="3.7.0" />
-    <PackageReference Include="Radzen.Blazor" Version="4.15.11" />
+    <PackageReference Include="Radzen.Blazor" Version="4.16.4" />
   </ItemGroup>
 
 
