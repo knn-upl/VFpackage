@@ -15,7 +15,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>    
     <ApplicationIcon>vf.ico</ApplicationIcon>
-    <Version>1.0.6.5</Version>
+    <Version>1.0.6.6</Version>
     <PackageIcon>vf.png</PackageIcon>
   </PropertyGroup>
 
@@ -31,10 +31,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">   
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11"> 
-    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11"/> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11"/> 
     <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="7.0.11" />  
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.5" />
